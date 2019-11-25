@@ -3,6 +3,7 @@ package ir.jaryaan.matchmatch.ui.base;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,8 +22,6 @@ import butterknife.Unbinder;
 import ir.jaryaan.matchmatch.ApplicationComponent;
 import ir.jaryaan.matchmatch.MatchMatchApplication;
 import ir.jaryaan.matchmatch.R;
-import ir.jaryaan.matchmatch.exception.ApiBusinessException;
-import ir.jaryaan.matchmatch.exception.ApiNetworkException;
 
 /**
  * Created by ehsun on 5/12/2017.
@@ -90,13 +89,7 @@ public abstract class BaseFragment extends Fragment implements BaseViewContract 
 
     @Override
     public final void showErrorMessage(@NonNull Throwable throwable) {
-        if (throwable instanceof ApiBusinessException) {
-            showErrorMessage(throwable.getMessage());
-        } else if (throwable instanceof ApiNetworkException) {
-            showErrorMessage(R.string.network_error_message);
-        } else {
-            showErrorMessage(R.string.unknown_error_message);
-        }
+        showErrorMessage(R.string.unknown_error_message);
         Log.w("BaseFragment", "error:", throwable);
     }
 

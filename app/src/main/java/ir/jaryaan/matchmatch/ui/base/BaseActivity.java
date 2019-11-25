@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.os.Bundle;
+
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,8 +20,6 @@ import butterknife.ButterKnife;
 import ir.jaryaan.matchmatch.ApplicationComponent;
 import ir.jaryaan.matchmatch.MatchMatchApplication;
 import ir.jaryaan.matchmatch.R;
-import ir.jaryaan.matchmatch.exception.ApiBusinessException;
-import ir.jaryaan.matchmatch.exception.ApiNetworkException;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
@@ -94,13 +93,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
     @Override
     public final void showErrorMessage(@NonNull Throwable throwable) {
-        if (throwable instanceof ApiBusinessException) {
-            showErrorMessage(throwable.getMessage());
-        } else if (throwable instanceof ApiNetworkException) {
-            showErrorMessage(R.string.network_error_message);
-        } else {
-            showErrorMessage(R.string.unknown_error_message);
-        }
+        showErrorMessage(R.string.unknown_error_message);
         Log.w("BaseActivity", "error:", throwable);
     }
 
