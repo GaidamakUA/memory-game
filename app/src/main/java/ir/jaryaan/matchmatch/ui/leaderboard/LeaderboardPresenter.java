@@ -1,7 +1,7 @@
 package ir.jaryaan.matchmatch.ui.leaderboard;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import ir.jaryaan.matchmatch.model.manager.ScoreManagerContract;
 import ir.jaryaan.matchmatch.utils.scheduler.SchedulerProvider;

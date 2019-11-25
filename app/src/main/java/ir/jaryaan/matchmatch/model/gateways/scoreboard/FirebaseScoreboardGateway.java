@@ -1,6 +1,6 @@
 package ir.jaryaan.matchmatch.model.gateways.scoreboard;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import ir.jaryaan.matchmatch.entities.ScoreboardLevel;
 import rx.Observable;

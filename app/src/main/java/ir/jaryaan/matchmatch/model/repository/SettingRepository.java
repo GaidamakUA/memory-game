@@ -2,7 +2,7 @@ package ir.jaryaan.matchmatch.model.repository;
 
 
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;

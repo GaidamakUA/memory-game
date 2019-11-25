@@ -1,6 +1,6 @@
 package ir.jaryaan.matchmatch.ui.board;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.List;
 

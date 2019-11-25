@@ -2,8 +2,8 @@ package ir.jaryaan.matchmatch.entities;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
 
 import java.lang.annotation.Retention;
 
@@ -86,5 +86,13 @@ public class Card implements Parcelable {
     @Retention(SOURCE)
     @IntDef({CARD_STATUS_WAITING_FOR_MATCH, CARD_STATUS_MATCHED, CARD_STATUS_NOT_MATCHED, CARD_STATUS_NOTHING})
     public @interface CardStatus {
+    }
+
+    public CardImage getCardImage() {
+        return cardImage;
+    }
+
+    public boolean isFaceDown() {
+        return faceDown;
     }
 }

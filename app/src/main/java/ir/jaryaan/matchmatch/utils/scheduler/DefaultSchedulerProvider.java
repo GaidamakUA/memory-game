@@ -1,6 +1,6 @@
 package ir.jaryaan.matchmatch.utils.scheduler;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import rx.Scheduler;
 import rx.android.schedulers.AndroidSchedulers;

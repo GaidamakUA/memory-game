@@ -1,6 +1,6 @@
 package ir.jaryaan.matchmatch.model.gateways.user;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import rx.Observable;
 

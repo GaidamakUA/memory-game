@@ -10,7 +10,6 @@ import lombok.Builder;
 /**
  * Created by E.Mehranvari on 5/14/2017.
  */
-@Builder
 public class CardAnimationUtil {
 
     private View view;
@@ -22,6 +21,12 @@ public class CardAnimationUtil {
     private int targetY;
     private float targetScale;
     private long lastClickTime = 0;
+
+    public CardAnimationUtil(View view, View faceImageView, Card card) {
+        this.view = view;
+        this.faceImageView = faceImageView;
+        this.card = card;
+    }
 
     public void flipCard() {
         if (card.isFaceDown()) {

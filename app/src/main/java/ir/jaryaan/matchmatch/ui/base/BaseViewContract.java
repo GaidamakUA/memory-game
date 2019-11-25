@@ -1,6 +1,6 @@
 package ir.jaryaan.matchmatch.ui.base;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Created by ehsun on 5/11/2017.

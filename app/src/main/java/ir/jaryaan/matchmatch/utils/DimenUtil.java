@@ -2,7 +2,7 @@ package ir.jaryaan.matchmatch.utils;
 
 import android.content.Context;
 import android.graphics.Point;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Display;

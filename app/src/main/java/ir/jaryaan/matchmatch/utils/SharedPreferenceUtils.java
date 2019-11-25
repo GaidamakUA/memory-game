@@ -1,7 +1,7 @@
 package ir.jaryaan.matchmatch.utils;
 
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Created by ehsun on 5/12/2017.

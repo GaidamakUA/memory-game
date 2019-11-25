@@ -1,9 +1,7 @@
 package ir.jaryaan.matchmatch.utils;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-
-import javax.inject.Singleton;
+import androidx.annotation.NonNull;
 
 import dagger.Module;
 import dagger.Provides;

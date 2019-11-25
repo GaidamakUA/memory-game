@@ -1,6 +1,6 @@
 package ir.jaryaan.matchmatch.entities;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 
@@ -15,8 +15,6 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
  */
 
 @Builder
-@Getter
-@Setter
 public class Setting {
 
     public static final int DIFFICULTY_LEVEL_DEFAULT = 0;
@@ -33,5 +31,29 @@ public class Setting {
     @Retention(SOURCE)
     @IntDef({DIFFICULTY_LEVEL_DEFAULT, DIFFICULTY_LEVEL_EASY, DIFFICULTY_LEVEL_NORMAL, DIFFICULTY_LEVEL_HARD, DIFFICULTY_LEVEL_INSANE})
     public @interface DifficultyLevel {
+    }
+
+    public int getDifficultyLevel() {
+        return difficultyLevel;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public String getCardType() {
+        return cardType;
+    }
+
+    public void setDifficultyLevel(int difficultyLevel) {
+        this.difficultyLevel = difficultyLevel;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void setCardType(String cardType) {
+        this.cardType = cardType;
     }
 }

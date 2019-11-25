@@ -1,6 +1,6 @@
 package ir.jaryaan.matchmatch.ui.setting;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import ir.jaryaan.matchmatch.entities.Setting;
 import ir.jaryaan.matchmatch.ui.base.BasePresenterContract;

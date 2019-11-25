@@ -20,19 +20,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@EqualsAndHashCode(of = "Id")
+@EqualsAndHashCode(of = "id")
 public class CardImage implements Parcelable {
-    public static final Parcelable.Creator<CardImage> CREATOR = new Parcelable.Creator<CardImage>() {
-        @Override
-        public CardImage createFromParcel(Parcel source) {
-            return new CardImage(source);
-        }
-
-        @Override
-        public CardImage[] newArray(int size) {
-            return new CardImage[size];
-        }
-    };
     private int id;
     @SerializedName("image_url")
     private String imageUrl;
@@ -52,4 +41,24 @@ public class CardImage implements Parcelable {
         dest.writeInt(this.id);
         dest.writeString(this.imageUrl);
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public static final Parcelable.Creator<CardImage> CREATOR = new Parcelable.Creator<CardImage>() {
+        @Override
+        public CardImage createFromParcel(Parcel source) {
+            return new CardImage(source);
+        }
+
+        @Override
+        public CardImage[] newArray(int size) {
+            return new CardImage[size];
+        }
+    };
 }

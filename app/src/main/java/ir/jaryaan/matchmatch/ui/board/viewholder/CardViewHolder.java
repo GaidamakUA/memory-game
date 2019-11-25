@@ -2,9 +2,10 @@ package ir.jaryaan.matchmatch.ui.board.viewholder;
 
 import android.content.Context;
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,11 +67,10 @@ public class CardViewHolder extends RecyclerView.ViewHolder {
                 .load(card.getCardImage().getImageUrl())
                 .into(faceImageView);
 
-        animation = CardAnimationUtil.builder()
-                .view(bodyContainer)
-                .faceImageView(faceImageView)
-                .card(card)
-                .build();
+        animation = new CardAnimationUtil(
+                bodyContainer,
+                faceImageView,
+                card);
     }
 
 
@@ -96,13 +96,10 @@ public class CardViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void moveCardToDeck() {
-        CardAnimationUtil.builder()
-                .view(bodyContainer)
-                .faceImageView(faceImageView)
-                .card(card)
-                .build()
-                .moveToDeck();
-
+        new CardAnimationUtil(
+                bodyContainer,
+                faceImageView,
+                card).moveToDeck();
     }
 
     public interface CardListener {

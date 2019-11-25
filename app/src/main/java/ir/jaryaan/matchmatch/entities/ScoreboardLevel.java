@@ -55,4 +55,32 @@ public class ScoreboardLevel {
     public void generateWeight() {
         weight = -((timeRemaining == 0 ? 1 : timeRemaining) * score);
     }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public long getTimeRemaining() {
+        return timeRemaining;
+    }
+
+    public long getSubmitTime() {
+        return submitTime;
+    }
+
+    public long getWeight() {
+        return weight;
+    }
+
+    public String getScoreID() {
+        return scoreID;
+    }
 }

@@ -3,8 +3,8 @@ package ir.jaryaan.matchmatch.ui.setting;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -74,7 +74,7 @@ public class SettingActivity extends BaseActivity
 
     @OnClick(R.id.save_settings_button)
     void onSaveClick() {
-        RadioButton selectedRadioButton = ButterKnife.findById(this, cardTypeRadioGroup.getCheckedRadioButtonId());
+        RadioButton selectedRadioButton = findViewById(cardTypeRadioGroup.getCheckedRadioButtonId());
         presenter.onSettingSaved(selectedRadioButton.getText().toString());
     }
 }

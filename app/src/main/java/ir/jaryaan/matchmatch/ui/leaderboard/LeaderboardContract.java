@@ -1,7 +1,7 @@
 package ir.jaryaan.matchmatch.ui.leaderboard;
 
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import ir.jaryaan.matchmatch.entities.ScoreboardLevel;
 import ir.jaryaan.matchmatch.ui.base.BasePresenterContract;

@@ -1,6 +1,6 @@
 package ir.jaryaan.matchmatch.model.gateways.scoreboard;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;

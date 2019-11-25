@@ -1,6 +1,6 @@
 package ir.jaryaan.matchmatch.ui;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import dagger.Module;
 import dagger.Provides;

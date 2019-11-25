@@ -1,18 +1,15 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'me.tatarka.retrolambda'
-
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 29
     buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "ir.jaryaan.matchmatch"
         minSdkVersion 18
-        targetSdkVersion 25
+        targetSdkVersion 29
         versionCode 2
         versionName "1.1"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
     compileOptions {
@@ -43,64 +40,66 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     //Support
-    compile "com.android.support:support-v4:$rootProject.ext.supportLibrariesVersion"
-    compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibrariesVersion"
-    compile "com.android.support:cardview-v7:$rootProject.ext.supportLibrariesVersion"
-    compile "com.android.support:design:$rootProject.ext.supportLibrariesVersion"
-    compile "com.android.support:recyclerview-v7:$rootProject.ext.supportLibrariesVersion"
-    compile "com.android.support:percent:$rootProject.ext.supportLibrariesVersion"
-    compile "com.android.support:customtabs:$rootProject.ext.supportLibrariesVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.0.0"
+
+    implementation 'androidx.percentlayout:percentlayout:1.0.0'
+    implementation 'androidx.browser:browser:1.0.0'
 //Test specific
-    testCompile "junit:junit:$rootProject.ext.jUnitVersion"
-    androidTestCompile "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
-    androidTestCompile "com.android.support.test:runner:$rootProject.ext.testRunnerVersion"
-    androidTestCompile "com.android.support:support-annotations:$rootProject.ext.supportLibrariesVersion"
+    testCompile "junit:junit:4.12"
+    androidTestCompile 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestCompile 'androidx.test:runner:1.2.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
 
     //ButterKnife
-    compile "com.jakewharton:butterknife:$rootProject.ext.butterKnifeVersion"
-    apt "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVersion"
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
 
     //Calligraphy
-    compile "uk.co.chrisjenx:calligraphy:$rootProject.ext.calligraphyVersion"
+    implementation "uk.co.chrisjenx:calligraphy:2.2.0"
 
     //Retrofit
-    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
-    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.retrofitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
-    compile "com.squareup.okhttp3:okhttp-urlconnection:$rootProject.ext.okhttpVersion"
-    compile "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttpVersion"
-    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
+    implementation "com.squareup.retrofit2:retrofit:2.1.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava:2.1.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.1.0"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:3.4.1"
+    implementation "com.squareup.okhttp3:okhttp:3.10.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.4.1"
 
     //Rx
-    compile "io.reactivex:rxandroid:$rootProject.ext.rxAndroidVersion"
+    implementation "io.reactivex:rxandroid:1.2.1"
 
     //Gson
-    compile "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
+    implementation "com.google.code.gson:gson:2.8.5"
 
     //Lombok
-    provided "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
-    apt "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
+    compileOnly "org.projectlombok:lombok:1.18.10"
+    annotationProcessor "org.projectlombok:lombok:1.18.10"
 
     //Picasso
-    compile "com.squareup.picasso:picasso:$rootProject.ext.picassoVersion"
-    compile "com.jakewharton.picasso:picasso2-okhttp3-downloader:$rootProject.ext.picassoOkHttp"
+    implementation "com.squareup.picasso:picasso:2.5.2"
+    implementation "com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.2"
 
     //Dagger
-    compile "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
-    apt "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
+    implementation "com.google.dagger:dagger:2.5"
+    annotationProcessor "com.google.dagger:dagger-compiler:2.5"
 
     //JodaTime
-    compile "net.danlew:android.joda:$rootProject.ext.jodatimeVersion"
+    implementation "net.danlew:android.joda:2.9.4.1"
 
     //Firebase
-    compile "com.google.firebase:firebase-core:$rootProject.ext.googleFirebaseVersion"
-    compile "com.google.firebase:firebase-database:$rootProject.ext.googleFirebaseVersion"
-    compile "com.google.firebase:firebase-auth:$rootProject.ext.googleFirebaseVersion"
+    implementation "com.google.firebase:firebase-core:17.2.1"
+    implementation "com.google.firebase:firebase-database:19.2.0"
+    implementation "com.google.firebase:firebase-auth:19.2.0"
 
 }
 apply plugin: 'com.google.gms.google-services'
