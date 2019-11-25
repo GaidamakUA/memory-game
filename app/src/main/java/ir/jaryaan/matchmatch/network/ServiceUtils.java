@@ -28,11 +28,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceUtils {
 
-    private static final String LOG_TAG = MatchMatchApplication.LOG_TAG;
+    public static Retrofit createDefaultRetrofitBuilder(String baseUrl, Gson gson, Interceptor... interceptors) {
 
-    public static Retrofit createDefaultRetrofitBuilder(String baseUrl, boolean useSsl, Gson gson, Interceptor... interceptors) {
-
-        OkHttpClient.Builder okHttpClientBuilder = createDefaultClient(useSsl);
+        OkHttpClient.Builder okHttpClientBuilder = createDefaultClient();
         if (interceptors != null && interceptors.length > 0) {
             for (Interceptor interceptor : interceptors) {
                 okHttpClientBuilder.interceptors().add(interceptor);
@@ -53,47 +51,12 @@ public class ServiceUtils {
         return loggingInterceptor;
     }
 
-    public static OkHttpClient.Builder createDefaultClient(boolean useSsl) {
+    public static OkHttpClient.Builder createDefaultClient() {
         OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder()
                 .followSslRedirects(true)
                 .connectTimeout(15, TimeUnit.SECONDS)
                 .readTimeout(1, TimeUnit.MINUTES)
                 .writeTimeout(1, TimeUnit.MINUTES);
-
-        if (useSsl) {
-            return okHttpClientBuilder;
-        }
-
-        TrustManager[] trustAllCerts = new TrustManager[]{
-                new X509TrustManager() {
-                    @Override
-                    public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {
-                    }
-
-                    @Override
-                    public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {
-                    }
-
-                    @Override
-                    public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                        return null;
-                    }
-                }
-        };
-
-        SSLSocketFactory sslSocketFactory = null;
-        try {
-            SSLContext sslContext = SSLContext.getInstance("TLS");
-            sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
-            sslSocketFactory = sslContext.getSocketFactory();
-        } catch (NoSuchAlgorithmException | KeyManagementException e) {
-            Log.d(LOG_TAG, e.getMessage());
-        }
-
-        okHttpClientBuilder = okHttpClientBuilder
-                .sslSocketFactory(sslSocketFactory)
-                .retryOnConnectionFailure(true)
-                .hostnameVerifier((hostname, session) -> true);
 
         return okHttpClientBuilder;
     }

@@ -22,12 +22,12 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode(of = "id")
 public class CardImage implements Parcelable {
-    private int id;
-    @SerializedName("image_url")
+    private String id;
+    @SerializedName("url")
     private String imageUrl;
 
     protected CardImage(Parcel in) {
-        this.id = in.readInt();
+        this.id = in.readString();
         this.imageUrl = in.readString();
     }
 
@@ -38,11 +38,11 @@ public class CardImage implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.id);
+        dest.writeString(this.id);
         dest.writeString(this.imageUrl);
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 

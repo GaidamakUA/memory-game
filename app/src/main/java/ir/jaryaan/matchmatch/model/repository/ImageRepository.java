@@ -23,7 +23,7 @@ public class ImageRepository implements ImageRepositoryContract {
 
     @NonNull
     @Override
-    public Observable<List<CardImage>> getCardImages(int totalNumber, String cardFace, int imageSize) {
-        return apiService.getKittens(totalNumber, cardFace, imageSize);
+    public Observable<List<CardImage>> getCardImages(int totalNumber) {
+        return apiService.getKittens(totalNumber);
     }
 }

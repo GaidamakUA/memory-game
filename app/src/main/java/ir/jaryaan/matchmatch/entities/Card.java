@@ -64,7 +64,6 @@ public class Card implements Parcelable {
     }
 
     public boolean isMatchWith(Card newCard) {
-
         return this.getCardImage().getId() == newCard.getCardImage().getId();
     }
 

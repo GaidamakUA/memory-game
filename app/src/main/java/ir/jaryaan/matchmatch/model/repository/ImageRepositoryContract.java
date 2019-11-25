@@ -13,8 +13,6 @@ import rx.Observable;
 
 public interface ImageRepositoryContract {
     @NonNull
-    Observable<List<CardImage>> getCardImages(int totalNumber,
-                                              String cardFace,
-                                              int imageSize);
+    Observable<List<CardImage>> getCardImages(int totalNumber);
 
 }

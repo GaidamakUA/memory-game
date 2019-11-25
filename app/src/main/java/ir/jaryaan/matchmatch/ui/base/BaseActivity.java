@@ -8,6 +8,8 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
 import android.widget.Toast;
@@ -99,6 +101,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         } else {
             showErrorMessage(R.string.unknown_error_message);
         }
+        Log.w("BaseActivity", "error:", throwable);
     }
 
     @Override

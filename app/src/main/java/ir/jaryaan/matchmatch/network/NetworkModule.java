@@ -24,10 +24,7 @@ public class NetworkModule {
     public ApiService provideApiService(@NonNull Gson gson) {
         Retrofit retrofit = ServiceUtils.createDefaultRetrofitBuilder(
                 BuildConfig.BASE_URL,
-                BuildConfig.CHECK_SSL_CERTIFICATE,
                 gson,
-                new InjectConsumerKeyInterceptor(),
-                new ApiResponseInterceptor(),
                 ServiceUtils.getLoggingInterceptor(HttpLoggingInterceptor.Level.BODY));
 
         return retrofit.create(ApiService.class);

@@ -69,9 +69,9 @@ public class BoardPresenter implements BoardContract.Presenter,
     @Override
     public void onGameStarted() {
         view.showLoading();
+        // Todo reimplement image types
         Subscription subscription = imageRepository.getCardImages(
-                settingRepository.getSetting().getDifficultyLevel(),
-                settingRepository.getSetting().getCardType(), 4)
+                settingRepository.getSetting().getDifficultyLevel())
                 .subscribeOn(schedulerProvider.getIoScheduler())
                 .observeOn(schedulerProvider.getMainScheduler())
                 .subscribe(cardImages -> {

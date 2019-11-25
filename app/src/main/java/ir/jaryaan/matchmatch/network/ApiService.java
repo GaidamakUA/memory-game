@@ -13,9 +13,7 @@ import rx.Observable;
 
 public interface ApiService {
 
-    @GET("/v1/photos/search")
-    Observable<List<CardImage>> getKittens(@Query("rpp") int totalNumber,
-                                           @Query("term") String cardFace,
-                                           @Query("image_size") int imageSize);
+    @GET("/v1/images/search")
+    Observable<List<CardImage>> getKittens(@Query("limit") int totalNumber);
 
 }

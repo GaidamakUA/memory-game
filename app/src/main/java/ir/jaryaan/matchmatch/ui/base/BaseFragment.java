@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
 import android.widget.Toast;
@@ -96,6 +97,7 @@ public abstract class BaseFragment extends Fragment implements BaseViewContract 
         } else {
             showErrorMessage(R.string.unknown_error_message);
         }
+        Log.w("BaseFragment", "error:", throwable);
     }
 
     protected void updateScreenTitle(@Nullable String title) {

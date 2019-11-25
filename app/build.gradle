@@ -22,18 +22,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationIdSuffix ".staging"
 
-            buildConfigField 'String', 'BASE_URL', '"https://api.500px.com/"'
-            buildConfigField 'String', 'CONSUMER_KEY', '"CfZi6m2rc8wkXqtuwwSiB5xvSpbATYiRgk10Rhb5"'
-            buildConfigField 'boolean', 'CHECK_SSL_CERTIFICATE', 'true'
+            buildConfigField 'String', 'BASE_URL', '"https://api.thecatapi.com/"'
         }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
-            buildConfigField 'String', 'BASE_URL', '"https://api.500px.com/"'
-            buildConfigField 'String', 'CONSUMER_KEY', '"CfZi6m2rc8wkXqtuwwSiB5xvSpbATYiRgk10Rhb5"'
-            buildConfigField 'boolean', 'CHECK_SSL_CERTIFICATE', 'true'
+            buildConfigField 'String', 'BASE_URL', '"https://api.thecatapi.com/"'
         }
 
     }
